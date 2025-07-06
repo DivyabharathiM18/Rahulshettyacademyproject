@@ -1,0 +1,55 @@
+package rahulshettyacademyproject;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class AutomationPractice3 {
+
+	public static void main(String[] args) {
+
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		driver.manage().window().maximize();
+		
+driver.findElement(By.id("show-textbox")).click();
+		
+		driver.findElement(By.id("displayed-text")).sendKeys("HI");
+	
+
+	WebElement mouse = driver.findElement(By.id("mousehover"));
+	
+	
+	Actions mouseaction = new Actions(driver);
+	
+	mouseaction.moveToElement(mouse).perform();
+	
+	WebElement top = driver.findElement(By.linkText("Top"));
+	
+	WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(1000));
+	
+	wait.until(ExpectedConditions.elementToBeClickable(top));
+	
+	top.click();
+	
+	
+	 System.out.println("Mousehover completed");
+	  
+	  
+	  
+	driver.switchTo().frame(0);
+	 
+		
+		driver.quit();
+		
+		
+
+}}
