@@ -1,0 +1,59 @@
+package rahulshettyacademyproject;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Automationpractice5 {
+
+	public static void main(String[] args) {
+		
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		WebElement table2  =  driver.findElement(By.xpath("//div[@class='tableFixHead']"));
+		
+		List<WebElement> header = table2.findElements(By.tagName("tr"));
+		
+		for(WebElement headerpart : header)
+		{
+			System.out.println(headerpart.getText());
+		}
+		
+		System.out.println("==================================");
+		
+		List<WebElement> rows1 = table2.findElements(By.tagName("th"));
+		
+		
+		for(WebElement rowsone : rows1)
+		{
+			System.out.println(rowsone.getText());
+		}
+		
+		System.out.println("==================================");
+		
+		
+		List<WebElement> column = table2.findElements(By.tagName("td"));
+		
+		System.out.println(column.get(10).getText());
+		
+		/*for(WebElement columns : column)
+		{
+			System.out.println(columns.getText();
+		}*/
+		
+		System.out.println("==================================");
+		
+		List<WebElement> column2 = table2.findElements(By.tagName("tr"));
+
+		System.out.println(column2.get(5).getText());
+		driver.quit();
+		
+	}
+
+}
