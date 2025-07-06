@@ -1,0 +1,57 @@
+package rahulshettyacademyproject;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.support.ui.Select;
+
+public class AutomationPractice {
+
+	public static void main(String[] args) {
+		
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("//input[@value='radio1']")).click();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebElement country = driver.findElement(By.id("autocomplete"));
+		country.sendKeys("India",Keys.ENTER);
+		
+		
+		System.out.println("India clicked");
+		
+		WebElement option = driver.findElement(By.id("dropdown-class-example"));
+		
+		Select dropdown = new Select(option);
+		
+		 dropdown.selectByValue("option3");
+		 
+		String opt = dropdown.getFirstSelectedOption().getText();
+		
+		System.out.println(opt+" selected");
+		
+		driver.findElement(By.xpath("//label[@for='bmw']")).click();
+		
+		System.out.println("Option2 checkbox clicked");
+		
+		
+		
+		
+		
+		
+		driver.quit();
+		
+		
+	}
+
+}
